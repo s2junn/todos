@@ -1,0 +1,26 @@
+.todo {
+  padding: 5px;
+  border: 1px solid #ebecf0;
+  border-radius: 5px;
+
+  display: flex;
+
+  &.editing {
+    background-color: rgba(0, 100, 200, 0.2);
+  }
+  &.completed {
+    background-color: rgba(9, 30, 66, 0.04);
+    opacity: 0.5;
+
+    .todo-task,
+    .todo-details,
+    .extra-info,
+    .btn-edit {
+      color: #888888;
+    }
+  }
+
+  & + .todo {
+    margin-top: 5px;
+  }
+}

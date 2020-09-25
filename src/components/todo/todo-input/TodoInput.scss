@@ -1,0 +1,111 @@
+.todo-input {
+  flex: 1;
+  display: flex;
+
+  .checkbox-wrapper {
+    width: 13px;
+  }
+  .contents-wrapper {
+    flex: 1;
+    padding: 0 10px;
+    color: #172b4d;
+
+    display: flex;
+    flex-direction: column;
+
+    .task-header {
+      display: flex;
+      align-items: center;
+
+      .todo-task {
+        flex: 1;
+        margin: 0;
+        font-size: 14px;
+        text-align: left;
+        color: #222222;
+
+        &.task-input {
+          height: 30px;
+          padding: 5px;
+        }
+      }
+      .button-wrapper {
+        margin-left: 5px;
+        padding: 5px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        .todo-btn {
+          width: 50px;
+          height: 30px;
+          border: none;
+          border-radius: 5px;
+          font-size: 12px;
+
+          & + .todo-btn {
+            margin-left: 5px;
+          }
+        }
+        .btn-save {
+          background-color: #00c2e0;
+          color: white;
+        }
+        .btn-cancel {
+        }
+      }
+    }
+    .todo-details {
+      margin: 0;
+      font-size: 13px;
+      text-align: left;
+      color: #222222;
+      white-space: pre-line;
+
+      &.details-input {
+        margin-top: 5px;
+        height: 80px;
+        padding: 10px;
+        resize: none;
+      }
+    }
+    .extra-info {
+      margin-top: 5px;
+      padding: 0 10px 5px;
+      font-size: 14px;
+      text-align: left;
+
+      .action-info {
+        display: flex;
+        flex-direction: column;
+
+        .todo-info {
+          display: flex;
+          align-items: center;
+
+          label + select,
+          label + input {
+            min-width: 153px;
+            height: 24px;
+            margin-left: 5px;
+          }
+          & + .todo-info {
+            margin-top: 5px;
+            margin: 5px 0 0;
+          }
+        }
+
+        @media screen and (min-width: 514px) {
+          flex-direction: row;
+
+          .todo-info {
+            & + .todo-info {
+              margin: 0 0 0 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

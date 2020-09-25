@@ -1,0 +1,28 @@
+.todos {
+  height: 100%;
+  padding: 20px;
+
+  .todo-list {
+    margin: 0;
+    padding: 0;
+  }
+  .button-area {
+    margin-top: 5px;
+    display: flex;
+
+    .todo-btn {
+      flex: 1;
+      height: 40px;
+      & + .todo-btn {
+        margin-left: 5px;
+      }
+
+      &:disabled {
+        background-color: rgba(9, 30, 66, 0.04);
+      }
+    }
+    .btn-add {
+      background-color: #00c2e0;
+    }
+  }
+}

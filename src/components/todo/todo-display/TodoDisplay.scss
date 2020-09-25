@@ -1,0 +1,126 @@
+.todo-display {
+  flex: 1;
+  display: flex;
+
+  .checkbox-wrapper {
+    display: flex;
+    align-items: center;
+  }
+  .contents-wrapper {
+    flex: 1;
+    padding: 0 10px;
+    color: #172b4d;
+
+    display: flex;
+    flex-direction: column;
+
+    .task-header {
+      display: flex;
+      align-items: center;
+
+      .todo-task {
+        flex: 1;
+        margin: 0;
+        font-size: 18px;
+
+        display: flex;
+        align-items: center;
+        text-align: start;
+      }
+      .button-wrapper {
+        padding: 5px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        .todo-btn {
+          width: 50px;
+          height: 30px;
+          border: none;
+          border-radius: 5px;
+          font-size: 12px;
+
+          & + .todo-btn {
+            margin-left: 5px;
+          }
+
+          &:disabled {
+            opacity: 0.5;
+          }
+        }
+        .btn-edit {
+          background-color: #00c2e0;
+          color: white;
+        }
+        .btn-delete {
+          background-color: #cf513d;
+          color: white;
+        }
+      }
+    }
+    .todo-details {
+      flex: 1;
+      min-height: 19px;
+      margin: 5px;
+      padding: 10px;
+      background-color: #ebecf0;
+      border-radius: 5px;
+      font-size: 14px;
+      text-align: left;
+      white-space: pre-line;
+    }
+    .extra-info {
+      margin-top: 5px;
+      border-radius: 5px;
+      padding: 0 10px 5px;
+      text-align: left;
+
+      .action-info {
+        font-size: 14px;
+
+        .todo-info {
+          .label {
+          }
+          .value {
+            background-color: #ebecf0;
+            border-radius: 5px;
+            padding: 2px 5px;
+          }
+        }
+      }
+      .datetime-info {
+        margin-top: 5px;
+        font-size: 12px;
+        color: #abacb0;
+      }
+      .todo-info {
+        .label {
+        }
+        .value {
+        }
+
+        & + .todo-info {
+          margin-left: 20px;
+        }
+        &.caution {
+          font-weight: bold;
+          color: #cf513d;
+
+          @keyframes blinker {
+            from {
+              opacity: 1;
+            }
+            to {
+              opacity: 0;
+            }
+          }
+          animation-name: blinker;
+          animation-iteration-count: infinite;
+          animation-timing-function: cubic-bezier(1, 0.5, 0.5, 1);
+          animation-duration: 1.7s;
+        }
+      }
+    }
+  }
+}
