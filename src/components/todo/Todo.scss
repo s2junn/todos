@@ -18,6 +18,10 @@
     .btn-edit {
       color: #888888;
     }
+
+    .todo-task {
+      text-decoration-line: line-through;
+    }
   }
 
   & + .todo {

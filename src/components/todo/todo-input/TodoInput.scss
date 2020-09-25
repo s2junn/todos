@@ -7,6 +7,7 @@
   }
   .contents-wrapper {
     flex: 1;
+    max-width: calc(100% - 33px);
     padding: 0 10px;
     color: #172b4d;
 
@@ -26,6 +27,7 @@
 
         &.task-input {
           height: 30px;
+          max-width: calc(100% - 115px);
           padding: 5px;
         }
       }
