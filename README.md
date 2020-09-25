@@ -4,8 +4,6 @@
 >
 > This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
----
-
 ![npm type definitions][types-url]
 
 [types-url]: https://img.shields.io/npm/types/react-dropdown-tree-select.svg?style=flat-square
@@ -17,31 +15,17 @@
 ![image](https://user-images.githubusercontent.com/2343376/94309143-935f9d80-ffb2-11ea-9459-0a9563a85155.png)
 ![image](https://user-images.githubusercontent.com/2343376/94309278-c7d35980-ffb2-11ea-94d3-95b29bf8185b.png)
 
-## <br />
-
 ---
-
-## <br />
 
 # Table of Contents
 
-> If your `README` has a lot of info, section headers might be nice.
-
 - Features
 - Project Structures
--
-- Install
-- Usage (Optional)
-- [Development](#development)
-- Documentation (Optional)
+- Installation and Execution
 - Language Support
 - License
 
-## <br />
-
 ---
-
-## <br />
 
 # Features
 
@@ -63,7 +47,7 @@
   - created date
     > Place the old-date items at the top of the list.
 
-## <br />
+---
 
 # Project Structures
 
@@ -111,11 +95,7 @@ todos/
   tsconfig.json
 ```
 
-## <br />
-
 ---
-
-## <br />
 
 # Installation and Execution
 
@@ -150,13 +130,13 @@ todos/
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-## <br />
+---
 
 # Language Support
 
 - Korean
 
-## <br />
+---
 
 # License
 
