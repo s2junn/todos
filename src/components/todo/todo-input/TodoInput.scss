@@ -91,12 +91,11 @@
             margin-left: 5px;
           }
           & + .todo-info {
-            margin-top: 5px;
             margin: 5px 0 0;
           }
         }
 
-        @media screen and (min-width: 514px) {
+        @media screen and (min-width: 768px) {
           flex-direction: row;
 
           .todo-info {
