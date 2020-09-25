@@ -5,6 +5,10 @@
   .todo-list {
     margin: 0;
     padding: 0;
+
+    .todo-empty {
+      padding: 20px 0;
+    }
   }
   .button-area {
     margin-top: 5px;

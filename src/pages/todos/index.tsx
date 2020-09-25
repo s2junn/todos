@@ -31,7 +31,7 @@ function Todos(props: TodosProps) {
             <Todo todo={todo} key={`${todo.id}_${index}`} />
           ))
         ) : (
-          <p>
+          <p className={`todo-empty`}>
             <span>To Do List is empty!</span>
             <br />
             <span>Try adding a task to the list.</span>
