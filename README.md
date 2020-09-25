@@ -100,6 +100,8 @@ todos/
 # Installation and Execution
 
 > Clone this git repo to your local machine using `https://github.com/s2junn/todos.git`
+>
+> "git" and "node.js" must be pre-installed.
 
 ```
 > git clone https://github.com/s2junn/todos.git
@@ -117,7 +119,7 @@ todos/
 > yarn
 ```
 
-> You can then run follwing scripts for local development
+> You can then run following scripts for local development
 
 ```
 > npm run start
