@@ -8,7 +8,7 @@ import { TodoProvider } from "./store/contexts/TodoContext";
 function App() {
   return (
     <TodoProvider>
-      <div className="todo-app">
+      <div className={`todo-app`}>
         <RootRouter></RootRouter>
       </div>
     </TodoProvider>

@@ -106,7 +106,6 @@ function TodoInput(props: TodoInputProps) {
         <div className={`extra-info`}>
           <div className={`action-info`}>
             <span className={`todo-info`}>
-              <label htmlFor={`todo-priority`}>우선순위</label>
               <select
                 id={`todo-priority`}
                 value={priority}
@@ -118,9 +117,9 @@ function TodoInput(props: TodoInputProps) {
                   </option>
                 ))}
               </select>
+              <label htmlFor={`todo-priority`}>우선순위</label>
             </span>
             <span className={`todo-info`}>
-              <label htmlFor={`todo-deadline`}>마감기한</label>
               <input
                 type="date"
                 id={`todo-deadline`}
@@ -129,6 +128,7 @@ function TodoInput(props: TodoInputProps) {
                   setDeadline(target.valueAsDate || undefined)
                 }
               />
+              <label htmlFor={`todo-deadline`}>마감기한</label>
             </span>
           </div>
         </div>

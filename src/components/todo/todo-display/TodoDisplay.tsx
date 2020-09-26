@@ -78,7 +78,7 @@ function TodoDisplay(props: TodoDisplayProps) {
         <div className={`extra-info`}>
           <div className={`action-info`}>
             <span className={`todo-info`}>
-              <span className="label">우선순위 : </span>
+              <span className={`label`}>우선순위 : </span>
               <span className={`value`}>
                 {`${
                   todoPriority.find(
@@ -89,8 +89,8 @@ function TodoDisplay(props: TodoDisplayProps) {
             </span>
             {!!props.todo.deadline && (
               <span className={`todo-info`}>
-                <span className="label">마감기한 : </span>
-                <span className="value">
+                <span className={`label`}>마감기한 : </span>
+                <span className={`value`}>
                   {`${dateFormatter("yyyy.MM.dd (KS)", props.todo.deadline)}`}
                 </span>
               </span>
@@ -105,7 +105,7 @@ function TodoDisplay(props: TodoDisplayProps) {
           <div className={`datetime-info`}>
             <span className={`todo-info`}>
               <span className={`label`}>created : </span>
-              <span className="value">
+              <span className={`value`}>
                 {`${dateFormatter(
                   "yyyy.MM.dd (KS) HH:mm:ss",
                   props.todo.created
