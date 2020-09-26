@@ -25,7 +25,7 @@
 - Language Support
 - License
 
----
+## <br />
 
 # Features
 
@@ -47,7 +47,7 @@
   - created date
     > Place the old-date items at the top of the list.
 
----
+## <br />
 
 # Project Structures
 
@@ -100,7 +100,7 @@ todos/
   tsconfig.json
 ```
 
----
+## <br />
 
 # Installation and Execution
 
@@ -137,13 +137,13 @@ todos/
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
----
+## <br />
 
 # Language Support
 
 - Korean
 
----
+## <br />
 
 # License
 
