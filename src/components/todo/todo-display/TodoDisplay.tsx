@@ -2,7 +2,7 @@ import * as React from "react";
 
 import "./TodoDisplay.scss";
 
-import { ITodo } from "../../../types/index";
+import { ITodo } from "../../../@types/index";
 import { todoPriority } from "../../../models/Todo";
 import { dateFormatter } from "../../../utilities";
 import {
@@ -72,8 +72,9 @@ function TodoDisplay(props: TodoDisplayProps) {
             </button>
           </div>
         </div>
-
-        <p className={`todo-details`}>{props.todo.details}</p>
+        {!!props.todo.details?.trim() && (
+          <p className={`todo-details`}>{props.todo.details}</p>
+        )}
         <div className={`extra-info`}>
           <div className={`action-info`}>
             <span className={`todo-info`}>
@@ -90,10 +91,7 @@ function TodoDisplay(props: TodoDisplayProps) {
               <span className={`todo-info`}>
                 <span className="label">마감기한 : </span>
                 <span className="value">
-                  {`${dateFormatter(
-                    "yyyy.MM.dd (KS) HH:mm:ss",
-                    props.todo.deadline
-                  )}`}
+                  {`${dateFormatter("yyyy.MM.dd (KS)", props.todo.deadline)}`}
                 </span>
               </span>
             )}

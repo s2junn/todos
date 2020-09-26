@@ -10,7 +10,7 @@ type FooterProps = {
 function Footer(props: FooterProps) {
   return (
     <div className={`app-footer ${props.className}`}>
-      <p>copyright (c) s2junn. all rights reserved.</p>
+      <p>copyright (c) 2020 s2junn. all rights reserved.</p>
     </div>
   );
 }

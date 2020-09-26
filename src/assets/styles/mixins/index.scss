@@ -1,0 +1,199 @@
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin ellipsis() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: break-word;
+  display: block;
+}
+
+@mixin display($display) {
+  @if $display==flex {
+    display: table-cell;
+    /* IE9 */
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -webkit-flex;
+    /* NEW - Chrome */
+    display: -moz-box;
+    /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    display: flex;
+    /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  } @else if $display==inline-flex {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+  } @else if $display==grid {
+    display: -ms-grid;
+    display: grid;
+  } @else {
+    display: $display;
+  }
+}
+
+/* for flexible box */
+@mixin flex($flex-grow: 1, $flex-shrink: 0, $flex-basis: auto) {
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  -moz-flex: $flex-grow $flex-shrink $flex-basis;
+  -moz-box-flex: $flex-grow $flex-shrink $flex-basis;
+  /* OLD - Firefox 19- */
+  -webkit-flex: $flex-grow $flex-shrink $flex-basis;
+  -webkit-box-flex: $flex-grow $flex-shrink $flex-basis;
+  /* Chrome */
+  -ms-flex: $flex-grow $flex-shrink $flex-basis;
+  /* IE 10 */
+  flex: $flex-grow $flex-shrink $flex-basis;
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+
+@mixin flex-grow($grow: 1) {
+  -webkit-flex-grow: $grow;
+  flex-grow: $grow;
+}
+
+@mixin flex-shrink($shrink: 0) {
+  -webkit-flex-shrink: $shrink;
+  flex-shrink: $shrink;
+}
+
+@mixin flex-basis($basis: auto) {
+  flex-basis: $basis;
+}
+
+@mixin flex-flow($flow: initial) {
+  -webkit-flex-flow: $flow;
+  /* Safari 6.1+ */
+  flex-flow: $flow;
+}
+
+@mixin flex-direction($direction: column) {
+  -webkit-box-direction: $direction;
+  -moz-box-direction: $direction;
+  -webkit-flex-direction: $direction;
+  -ms-flex-direction: $direction;
+  flex-direction: $direction;
+}
+
+@mixin flex-wrap($wrap: wrap) {
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  /* OLD - Firefox 19- */
+  /* NEW - Chrome */
+  -webkit-flex-wrap: $wrap;
+  /* Safari 6.1+ */
+  -ms-flex-wrap: $wrap;
+  /* IE 10 */
+  flex-wrap: $wrap;
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+
+@mixin flex-order($order) {
+  -webkit-box-ordinal-group: $order;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  -moz-box-ordinal-group: $order;
+  /* OLD - Firefox 19- */
+  -ms-flex-order: $order;
+  /* IE 10 */
+  -webkit-order: $order;
+  /* NEW - Chrome */
+  order: $order;
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+
+@mixin justify-content($align: center) {
+  -ms-flex-align: $align;
+  justify-content: $align;
+}
+
+@mixin justify-items($align: middle) {
+  justify-items: $align;
+}
+
+@mixin justify-self($align: center) {
+  justify-self: $align;
+}
+
+@mixin align-items($pack: center) {
+  -ms-flex-pack: $pack;
+  align-items: $pack;
+}
+
+@mixin align-content($align: center) {
+  align-content: $align;
+}
+
+@mixin align-self($align: center) {
+  align-self: $align;
+}
+
+/* for grid-layout */
+@mixin grid-template-columns($columns) {
+  -ms-grid-columns: $columns;
+  grid-template-columns: $columns;
+}
+
+@mixin grid-template-rows($rows: auto) {
+  -ms-grid-rows: $rows;
+  grid-template-rows: $rows;
+}
+
+@mixin grid-template-areas($areas) {
+  grid-template-areas: $areas;
+}
+
+/* for grid-layout-item */
+@mixin grid-column-start($start) {
+  -ms-grid-column: $start;
+  grid-column-start: $start;
+}
+
+@mixin grid-column-end($end) {
+  -ms-grid-column-span: $end - $start;
+  grid-column-end: $end;
+}
+
+@mixin grid-column($start, $end: $start + 1) {
+  -ms-grid-column: $start;
+  -ms-grid-column-span: $end - $start;
+  grid-column-start: $start;
+  grid-column-end: $end;
+}
+
+@mixin grid-row-start($start) {
+  -ms-grid-row: $start;
+  grid-row-start: $start;
+}
+
+@mixin grid-row-end($end) {
+  -ms-grid-row-span: $end - $start;
+  grid-row-end: $end;
+}
+
+@mixin grid-row($start, $end: $start + 1) {
+  -ms-grid-row: $start;
+  -ms-grid-row-span: $end - $start;
+  grid-row-start: $start;
+  grid-row-end: $end;
+}
+
+@mixin grid-justify-self($align: center) {
+  -ms-grid-column-align: $align;
+  justify-self: $align;
+}
+
+@mixin grid-align-self($align: center) {
+  -ms-grid-row-align: $align;
+  align-self: $align;
+}
+
+@mixin grid-area($area) {
+  grid-area: $area;
+}

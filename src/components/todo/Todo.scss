@@ -1,6 +1,8 @@
+@import "../../assets/styles/common/variables";
+
 .todo {
   padding: 5px;
-  border: 1px solid #ebecf0;
+  border: 1px solid $gray-bright;
   border-radius: 5px;
 
   display: flex;
@@ -16,7 +18,7 @@
     .todo-details,
     .extra-info,
     .btn-edit {
-      color: #888888;
+      color: $gray-dark;
     }
 
     .todo-task {

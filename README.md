@@ -15,7 +15,7 @@
 ![image](https://user-images.githubusercontent.com/2343376/94309143-935f9d80-ffb2-11ea-9459-0a9563a85155.png)
 ![image](https://user-images.githubusercontent.com/2343376/94309278-c7d35980-ffb2-11ea-94d3-95b29bf8185b.png)
 
----
+## <br />
 
 # Table of Contents
 
@@ -56,17 +56,25 @@ todos/
   public/
     index.html
   src/
+    @types/
+      index.d.ts
+      shape.d.ts
+    assets/
+      styles/
+        common/
+          _base.scss
+          _variables.scss
+        mixins/
+          index.scss
     components/
       layout/
         footer/
         header/
-        Layout.scss
-        Layout.tsx
+        ...
       todo/
         todo-display/       # display-mode of To-Do item
         todo-input/         # input-mode of To-Do item
-        Todo.scss
-        Todo.tsx
+        ...
     models/
       Todo.ts
     pages/
@@ -78,9 +86,6 @@ todos/
     store/
       contexts/
         TodoContext.tsx     # management of To-Do State
-    types/
-      index.d.ts
-      shape.d.ts
     utilities/
       datetime.ts
       index.ts
@@ -145,4 +150,4 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 
 - **[MIT license](http://opensource.org/licenses/mit-license.php)**
-- Copyright 2015 © <a href="https://s2junn.tistory.com/" target="_blank">s2junn</a>.
+- Copyright 2020 © <a href="https://s2junn.tistory.com/" target="_blank">s2junn</a>.

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { createContext, Dispatch, useContext, useReducer } from "react";
-import { ITodo } from "../../types";
+import { ITodo } from "../../@types";
 import Todo from "../../models/Todo";
 import { getItem, setItem } from "../../utilities";
 

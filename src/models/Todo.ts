@@ -1,4 +1,4 @@
-import { ITodo } from "../types/index";
+import { ITodo } from "../@types/index";
 
 const TODO_ID_LENGTH = 8;
 const generateId = (length: number) =>

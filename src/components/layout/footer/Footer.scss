@@ -1,8 +1,10 @@
+@import "../../../assets/styles/common/variables";
+
 .app-footer {
-  background-color: #282c34;
   height: 40px;
+  background-color: $layout-background;
+  color: $gray-bright;
   font-size: 16px;
-  color: #dddddd;
 
   display: flex;
   flex-direction: row;

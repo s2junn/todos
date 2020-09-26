@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import "./TodoInput.scss";
 
-import { ITodo } from "../../../types";
+import { ITodo } from "../../../@types";
 import { todoPriority } from "../../../models/Todo";
 import { dateFormatter } from "../../../utilities";
 import { useTodoDispatch } from "../../../store/contexts/TodoContext";

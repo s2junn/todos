@@ -1,3 +1,5 @@
+@import "../../../assets/styles/common/variables";
+
 .todo-display {
   flex: 1;
   display: flex;
@@ -9,7 +11,7 @@
   .contents-wrapper {
     flex: 1;
     padding: 0 10px;
-    color: #172b4d;
+    color: $text-primary;
 
     display: flex;
     flex-direction: column;
@@ -23,6 +25,7 @@
         margin: 0;
         font-size: 18px;
         line-break: anywhere;
+        line-height: 1.2;
 
         display: flex;
         align-items: center;
@@ -51,12 +54,12 @@
           }
         }
         .btn-edit {
-          background-color: #00c2e0;
-          color: white;
+          background-color: $button-positive;
+          color: $button-positive-text;
         }
         .btn-delete {
-          background-color: #cf513d;
-          color: white;
+          background-color: $button-neutral;
+          color: $button-neutral-text;
         }
       }
     }
@@ -65,7 +68,7 @@
       min-height: 19px;
       margin: 5px;
       padding: 10px;
-      background-color: #ebecf0;
+      background-color: $todo-item-details-background;
       border-radius: 5px;
       font-size: 14px;
       text-align: left;
@@ -86,16 +89,16 @@
           .label {
           }
           .value {
-            background-color: #ebecf0;
+            background-color: $gray-bright;
             border-radius: 5px;
             padding: 2px 5px;
           }
           & + .todo-info {
-            margin: 10px 0 0;
+            margin: 11px 0 0;
           }
         }
 
-        @media screen and (min-width: 768px) {
+        @media screen and (min-width: 758px) {
           flex-direction: row;
 
           .todo-info {
@@ -108,7 +111,7 @@
       .datetime-info {
         margin-top: 15px;
         font-size: 12px;
-        color: #abacb0;
+        color: $gray-neutral;
 
         display: flex;
         flex-direction: column;
@@ -119,7 +122,7 @@
           }
         }
 
-        @media screen and (min-width: 768px) {
+        @media screen and (min-width: 758px) {
           margin-top: 5px;
           flex-direction: row;
 
@@ -141,7 +144,7 @@
         // }
         &.caution {
           font-weight: bold;
-          color: #cf513d;
+          color: $text-warning;
 
           @keyframes blinker {
             from {

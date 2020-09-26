@@ -1,0 +1,32 @@
+@charset "utf-8";
+
+/* color */
+$blue-egg: #00c2e0;
+// $blue-dark: #172b4d;
+// $black-neutral: #232222;
+$black-bluish: #282c34;
+$red-orange: #cf513d;
+$gray-neutral: #abacb0;
+$gray-bright: #ebecf0;
+$gray-dark: #999999;
+$white-neutral: #ffffff;
+
+/* primary, secondary, tertiary, quaternary */
+$button-positive: $blue-egg;
+$button-positive-text: $white-neutral;
+$button-negative: $gray-neutral;
+$button-negative-text: $black-bluish;
+$button-neutral: $red-orange;
+$button-neutral-text: $white-neutral;
+$button-disabled: rgba(9, 30, 66, 0.04);
+
+$text-primary: $black-bluish;
+$text-secondary: $gray-neutral;
+$text-warning: $red-orange;
+
+/* light, dark */
+$layout-background: $black-bluish;
+
+$todo-item-details-background: $gray-bright;
+$todo-item-editing: rgba(0, 100, 200, 0.2);
+$todo-item-completed: rgba(9, 30, 66, 0.04);

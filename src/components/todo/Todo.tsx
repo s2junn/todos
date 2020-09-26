@@ -5,7 +5,7 @@ import TodoInput from "./todo-input/TodoInput";
 
 import "./Todo.scss";
 
-import { ITodo } from "../../types/index";
+import { ITodo } from "../../@types/index";
 
 type TodoProps = {
   children?: React.ReactNode;

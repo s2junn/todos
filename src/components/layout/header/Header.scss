@@ -1,7 +1,9 @@
+@import "../../../assets/styles/common/variables";
+
 .app-header {
-  background-color: #282c34;
   height: 55px;
-  color: white;
+  background-color: $layout-background;
+  color: $white-neutral;
 
   display: flex;
   flex-direction: row;
