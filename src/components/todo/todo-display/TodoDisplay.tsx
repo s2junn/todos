@@ -2,8 +2,8 @@ import * as React from "react";
 
 import "./TodoDisplay.scss";
 
-import { ITodo } from "../../../@types/index";
-import { todoPriority } from "../../../models/Todo";
+import { ITodo, TodoPriority } from "../../../@types/index.d";
+// import { todoPriority } from "../../../models/Todo";
 import { dateFormatter } from "../../../utilities";
 import {
   useTodoState,
@@ -80,11 +80,7 @@ function TodoDisplay(props: TodoDisplayProps) {
             <span className={`todo-info`}>
               <span className={`label`}>우선순위 : </span>
               <span className={`value`}>
-                {`${
-                  todoPriority.find(
-                    (priority) => priority.value === props.todo.priority
-                  )?.label
-                }`}
+                {TodoPriority[props.todo.priority]}
               </span>
             </span>
             {!!props.todo.deadline && (
