@@ -1,5 +1,4 @@
-import * as React from "react";
-import { createContext, Dispatch, useContext, useReducer } from "react";
+import React, { createContext, Dispatch, useContext, useReducer } from "react";
 import { ITodo } from "../../@types";
 import Todo from "../../models/Todo";
 import { getItem, setItem } from "../../utilities";
@@ -33,7 +32,7 @@ function todoReducer(state: any, action: TodoAction) {
   let newState;
   switch (action.type) {
     case "NEW": {
-      const newTodos = [...state.todos, new Todo({ task: "" })];
+      const newTodos = [...state.todos, new Todo()];
 
       return {
         ...state,

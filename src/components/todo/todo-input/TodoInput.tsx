@@ -1,12 +1,13 @@
-import * as React from "react";
-import { useState } from "react";
+// import * as React from "react";
+import React, { useState } from "react";
 
 import "./TodoInput.scss";
 
-import { ITodo } from "../../../@types";
-import { todoPriority } from "../../../models/Todo";
+import { ITodo, TodoPriority, Priority } from "../../../@types/index.d";
+// import { todoPriority } from "../../../models/Todo";
 import { dateFormatter } from "../../../utilities";
 import { useTodoDispatch } from "../../../store/contexts/TodoContext";
+import Todo from "../Todo";
 
 type TodoInputProps = {
   children?: React.ReactNode;
@@ -112,11 +113,14 @@ function TodoInput(props: TodoInputProps) {
                 value={priority}
                 onChange={({ target }) => setPriority(Number(target.value))}
               >
-                {todoPriority.map((priority, index) => (
-                  <option value={priority.value} key={`todo-priority-${index}`}>
-                    {priority.label}
-                  </option>
-                ))}
+                {
+                  Object.keys(TodoPriority).map((priority: any, index: number) => {
+                    return (
+                    <option value={priority} key={`todo-priority-${index}`}>
+                      {TodoPriority[priority]}
+                    </option>
+                  )})
+                }
               </select>
             </span>
             <span className={`todo-info`}>
