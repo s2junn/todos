@@ -1,9 +1,9 @@
 import React from "react";
-import RootRouter from "./routes";
+import RootRouter from "../../routes";
 
 import "./App.css";
 
-import { TodoProvider } from "./store/contexts/TodoContext";
+import { TodoProvider } from "../../store/contexts/TodoContext";
 
 function App() {
   return (

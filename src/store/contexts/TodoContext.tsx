@@ -16,6 +16,7 @@ type TodoState = {
 
 type TodoAction =
   | { type: "NEW" }
+  | { type: "NEW_CHILD"; payload: ITodo }
   | { type: "EDIT"; payload: ITodo }
   | { type: "UPDATE"; payload: ITodo }
   | { type: "DELETE"; payload: ITodo };
@@ -42,6 +43,26 @@ function todoReducer(state: any, action: TodoAction) {
       };
     }
 
+    case "NEW_CHILD": {
+      const newTodos = [
+        ...state.todos.map((todo: ITodo) =>
+          todo.id === action.payload.id
+            ? { ...todo, children: [
+              ...(todo.children || []),
+              new Todo({ task: "", editing: true })
+            ] }
+            : todo
+        ),
+      ];
+
+      newState = {
+        ...state,
+        todos: newTodos,
+        editing: false,
+      };
+    }
+
+      break;
     case "EDIT":
       {
         const newTodos = [

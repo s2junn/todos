@@ -1,8 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import './index.scss';
+import App from './components/app/App';
 import * as serviceWorker from './serviceWorker';
+
+import { initVConsole } from './config/vconsole/vConsole.config';
+
+if (process.env.NODE_ENV === 'development') {
+  initVConsole();
+}
 
 ReactDOM.render(
   <React.StrictMode>

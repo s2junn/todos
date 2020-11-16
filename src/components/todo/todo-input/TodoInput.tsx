@@ -4,7 +4,7 @@ import { useState } from "react";
 import "./TodoInput.scss";
 
 import { ITodo } from "../../../@types";
-import { todoPriority } from "../../../models/Todo";
+import { todoPriorities } from "../../../models/Todo";
 import { dateFormatter } from "../../../utilities";
 import { useTodoDispatch } from "../../../store/contexts/TodoContext";
 
@@ -112,7 +112,7 @@ function TodoInput(props: TodoInputProps) {
                 value={priority}
                 onChange={({ target }) => setPriority(Number(target.value))}
               >
-                {todoPriority.map((priority, index) => (
+                {todoPriorities.map((priority, index) => (
                   <option value={priority.value} key={`todo-priority-${index}`}>
                     {priority.label}
                   </option>

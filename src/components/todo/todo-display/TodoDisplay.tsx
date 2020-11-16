@@ -1,9 +1,11 @@
 import * as React from "react";
 
+import Todo from '../Todo';
+
 import "./TodoDisplay.scss";
 
 import { ITodo } from "../../../@types/index";
-import { todoPriority } from "../../../models/Todo";
+import { todoPriorities } from "../../../models/Todo";
 import { dateFormatter } from "../../../utilities";
 import {
   useTodoState,
@@ -32,6 +34,11 @@ function TodoDisplay(props: TodoDisplayProps) {
     });
   };
 
+  const addTodo = (e: any) => {
+    e.preventDefault();
+    dispatch({ type: "NEW_CHILD", payload: { ...props.todo } });
+  };
+
   const editTodo = (e: any) => {
     e.preventDefault();
     dispatch({ type: "EDIT", payload: { ...props.todo } });
@@ -57,6 +64,13 @@ function TodoDisplay(props: TodoDisplayProps) {
           <h3 className={`todo-task`}>{props.todo.task}</h3>
           <div className={`button-wrapper`}>
             <button
+              className={`todo-btn btn-add`}
+              onClick={addTodo}
+              disabled={editing || props.todo.isDone}
+            >
+              Add
+            </button>
+            <button
               className={`todo-btn btn-edit`}
               onClick={editTodo}
               disabled={editing || props.todo.isDone}
@@ -81,7 +95,7 @@ function TodoDisplay(props: TodoDisplayProps) {
               <span className={`label`}>우선순위 : </span>
               <span className={`value`}>
                 {`${
-                  todoPriority.find(
+                  todoPriorities.find(
                     (priority) => priority.value === props.todo.priority
                   )?.label
                 }`}
@@ -135,6 +149,14 @@ function TodoDisplay(props: TodoDisplayProps) {
               </span>
             )}
           </div>
+          { props.todo.children && props.todo.children.length > 0 && (
+            <div>
+              {props.todo.children.map((child, index) => (
+                <Todo todo={child} key={`${child.id}_${index}`} />
+              ))}
+            </div>
+          )}
+          
         </div>
       </div>
     </div>

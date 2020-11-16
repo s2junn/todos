@@ -1,4 +1,4 @@
-export type ITodo = {
+export interface ITodo {
   id?: string;
   task: string;
   details?: string;
@@ -9,4 +9,9 @@ export type ITodo = {
   updated?: Date;
   completed?: Date;
   editing?: boolean;
-};
+  children?: Array<T>;
+}
+
+export interface IPriority {
+  label: string;
+}

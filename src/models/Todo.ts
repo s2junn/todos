@@ -1,10 +1,10 @@
 import { ITodo } from "../@types/index";
 
 const TODO_ID_LENGTH = 8;
-const generateId = (length: number) =>
+const _generateId = (length: number) =>
   [...Array(length)].map(() => Math.random().toString(36)[2]).join("");
 
-export const todoPriority = [
+export const todoPriorities = [
   {
     label: "매우 높음",
     value: 5,
@@ -27,20 +27,25 @@ export const todoPriority = [
   },
 ];
 
+/**
+ *
+ */
+//*
 export default class Todo implements ITodo {
   id?: string;
   task: string;
   details?: string;
-  deadline?: Date;
+  deadline?: Date | undefined;
   priority?: number;
   isDone?: boolean;
-  created?: Date;
-  updated?: Date;
-  completed?: Date;
+  created?: Date | undefined;
+  updated?: Date | undefined;
+  completed?: Date | undefined;
   editing?: boolean;
+  children?: Array<Todo>;
 
   constructor({
-    id = generateId(TODO_ID_LENGTH),
+    id = _generateId(TODO_ID_LENGTH),
     task = "",
     details = "",
     priority = 3,
@@ -50,6 +55,7 @@ export default class Todo implements ITodo {
     updated = undefined,
     completed = undefined,
     editing = true,
+    children = [],
   }) {
     this.id = id;
     this.task = task;
@@ -61,5 +67,27 @@ export default class Todo implements ITodo {
     this.updated = updated;
     this.completed = completed;
     this.editing = editing;
+    this.children = children;
   }
 }
+// */
+
+/**
+ * Typescript 에서 접근 제한자를 생성자 함수 매개변수에 사용할 경우에는 해당 매개변수는 class 의 속성이 된다.
+ */
+/*
+export default class Todo implements ITodo {
+  constructor(
+    public id = _generateId(TODO_ID_LENGTH),
+    public task = "",
+    public details = "",
+    public priority = 3,
+    public isDone = false,
+    public deadline = undefined,
+    public created = undefined,
+    public updated = undefined,
+    public completed = undefined,
+    public editing = true
+  ) {}
+}
+// */
