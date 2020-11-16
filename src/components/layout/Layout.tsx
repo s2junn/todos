@@ -5,8 +5,11 @@ import Footer from "./footer/Footer";
 
 import "./Layout.scss";
 
-type LayoutProps = {
+import { ReactComponentProps } from '../../@types';
+
+type LayoutProps = ReactComponentProps & {
   children?: React.ReactNode;
+  id?: string;
   className?: string;
 };
 
