@@ -49,6 +49,12 @@ function TodoDisplay(props: TodoDisplayProps) {
     dispatch({ type: "DELETE", payload: { ...props.todo } });
   };
 
+  const isEditing = (todo: ITodo): boolean => {
+    return (todo.editing || todo.children?.reduce( (acc, current, currentIndex, array) => {
+      return acc || isEditing(current);
+    }, false ));
+  }
+
   return (
     <div className={`todo-display ${props.className}`}>
       <div className={`checkbox-wrapper`}>
@@ -56,7 +62,8 @@ function TodoDisplay(props: TodoDisplayProps) {
           type="checkbox"
           checked={props.todo.isDone}
           onChange={completeTodo}
-          disabled={editing}
+          // disabled={editing}
+          disabled={isEditing(props.todo)}
         />
       </div>
       <div className={`contents-wrapper`}>
@@ -66,21 +73,24 @@ function TodoDisplay(props: TodoDisplayProps) {
             <button
               className={`todo-btn btn-add`}
               onClick={addTodo}
-              disabled={editing || props.todo.isDone}
+              // disabled={editing || props.todo.isDone}
+              disabled={isEditing(props.todo) || props.todo.isDone}
             >
               Add
             </button>
             <button
               className={`todo-btn btn-edit`}
               onClick={editTodo}
-              disabled={editing || props.todo.isDone}
+              // disabled={editing || props.todo.isDone}
+              disabled={isEditing(props.todo) || props.todo.isDone}
             >
               Edit
             </button>
             <button
               className={`todo-btn btn-delete`}
               onClick={deleteTodo}
-              disabled={editing}
+              // disabled={editing}
+              disabled={isEditing(props.todo)}
             >
               Delete
             </button>

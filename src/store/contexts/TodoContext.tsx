@@ -31,6 +31,11 @@ function todoReducer(state: any, action: TodoAction) {
   //   action
   // );
 
+  //TODO: 
+  const findTodoById = (todo:ITodo, id: string): ITodo => {
+    return new Todo({ task: "", editing: true });
+  }
+
   let newState;
   switch (action.type) {
     case "NEW": {
