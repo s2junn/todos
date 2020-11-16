@@ -160,11 +160,11 @@ function TodoDisplay(props: TodoDisplayProps) {
             )}
           </div>
           { props.todo.children && props.todo.children.length > 0 && (
-            <div>
+            <ul>
               {props.todo.children.map((child, index) => (
                 <Todo todo={child} key={`${child.id}_${index}`} />
               ))}
-            </div>
+            </ul>
           )}
           
         </div>
