@@ -24,22 +24,70 @@ type TodoAction =
 type TodoDispatch = Dispatch<TodoAction>;
 
 function todoReducer(state: any, action: TodoAction) {
-  // console.log(
-  //   "@src/store/contexts/TodoContext.tsx :: todoReducer :: state = ",
-  //   state,
-  //   " action = ",
-  //   action
-  // );
 
-  //TODO: 
-  const findTodoById = (todo:ITodo, id: string): ITodo => {
-    return new Todo({ task: "", editing: true });
+  function* findTodo (todos: ITodo[], target: string): Iterator<ITodo, any, boolean> {
+    if ( !todos ) {
+      return;
+    }
+
+    for ( let i = 0; i < todos.length; i++ ) {
+      const todo = todos[i];
+      // yield (todo.id === target) ? todo : findTodo(todo.children || [], target);
+      if (todo.id === target) {
+        yield todo;
+      } else {
+        findTodo(todo.children || [], target);
+      }
+    }
+  }
+
+  const addTodo = (todo: ITodo, target: string): ITodo => {
+    return todo.id === target ? { 
+      ...todo,
+      children: [
+        ...(todo.children || []),
+        new Todo({ task: "", editing: true })
+      ] 
+    } : (!!todo.children && todo.children.length > 0) ? 
+      { 
+        ...todo,
+        children: todo.children.map( (child) => updateTodo(child, target) ) 
+      }
+      : todo
+  }
+
+   const updateTodo = (todo: ITodo, target: string, options: any = {}): ITodo => {
+    return todo.id === target ? { 
+      ...todo,
+      ...options 
+    } : (!!todo.children && todo.children.length > 0) ? 
+      { 
+        ...todo,
+        children: todo.children.map( (child) => updateTodo(child, target, options) ) 
+      }
+      : todo
+  }
+
+  function* deleteTodo (todos: ITodo[], target: string) {
+    if (!todos) {
+      return;
+    }
+
+    for ( let i = todos.length - 1; i >= 0; i-- ) {
+      const todo = todos[i];
+      // yield (todo.id === target) ? todo : findTodo(todo.children || [], target);
+      if (todo.id === target) {
+        yield todo;
+      } else {
+        findTodo(todo.children || [], target);
+      }
+    }
   }
 
   let newState;
   switch (action.type) {
     case "NEW": {
-      const newTodos = [...state.todos, new Todo({ task: "" })];
+      const newTodos = [...(state.todos), new Todo({ task: "" })];
 
       return {
         ...state,
@@ -50,15 +98,8 @@ function todoReducer(state: any, action: TodoAction) {
 
     case "NEW_CHILD": {
       const newTodos = [
-        ...state.todos.map((todo: ITodo) =>
-          todo.id === action.payload.id
-            ? { ...todo, children: [
-              ...(todo.children || []),
-              new Todo({ task: "", editing: true })
-            ] }
-            : todo
-        ),
-      ];
+        ...(state.todos.map((todo: ITodo) => addTodo( todo, action.payload.id || '' ))),
+      ]
 
       newState = {
         ...state,
@@ -71,9 +112,7 @@ function todoReducer(state: any, action: TodoAction) {
     case "EDIT":
       {
         const newTodos = [
-          ...state.todos.map((todo: ITodo) =>
-            todo.id === action.payload.id ? { ...todo, editing: true } : todo
-          ),
+          ...(state.todos.map((todo: ITodo) => updateTodo( todo, action.payload.id || '', { editing: true } ))),
         ];
 
         newState = {
@@ -87,11 +126,7 @@ function todoReducer(state: any, action: TodoAction) {
     case "UPDATE":
       {
         const newTodos = [
-          ...state.todos.map((todo: ITodo) =>
-            todo.id === action.payload.id
-              ? { ...todo, ...action.payload }
-              : todo
-          ),
+          ...(state.todos.map((todo: ITodo) => updateTodo( todo, action.payload.id || '', action.payload ))),
         ];
 
         newTodos.sort(function (prev: ITodo, next: ITodo) {
@@ -138,7 +173,7 @@ function todoReducer(state: any, action: TodoAction) {
     case "DELETE":
       {
         const newTodos = [
-          ...state.todos.filter((todo: ITodo) => todo.id !== action.payload.id),
+          ...(state.todos.filter((todo: ITodo) => todo.id !== action.payload.id)),
         ];
 
         newState = {
